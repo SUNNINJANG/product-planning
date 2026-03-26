@@ -106,11 +106,10 @@ Fresh Wave가 2~3일밖에 안 가는 이유는 격자가 너무 열려있어서
 
 ## 레퍼런스
 
-- frama 오일 디퓨저 — 발향 정도를 조절하는 방식이 좋았음
-- Fresh Wave — pack odors
-- 위프 브랜드 스토어
-- 픽싯 브랜드 스토어
-- 더티린넨 브랜드 스토어
+- [Fresh Wave](https://www.amazon.com/stores/page/B3C2B4D8-5149-4617-BB6A-367D803DF22E?ingress=2&lp_context_asin=B0DLHKMR7D&visitId=8f0f9384-451b-4de3-a90c-42ce82201f9b&store_ref=bl_ast_dp_brandlogo_sto&ref_=ast_bln) — pack odors
+- [frama 오일 디퓨저](https://us.framacph.com/collections/shop/products/from-soil-to-form-oil-diffuser-chuseok-deep-forest) — 디퓨저 디자인 참고
+- [onyourlife](https://onyourlifeon.shop/product/detail.html?product_no=36) — 발향 정도를 조절하는 방식이 좋았음
+- 위프, 픽싯, 더티린넨 — 경쟁사 참고
 
 ---
 
