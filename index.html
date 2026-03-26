@@ -5,18 +5,418 @@
   <title>제품기획 대시보드</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
+    /* === 하우스보이 컬러 팔레트 === */
     :root {
-      --base-font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-      --theme-color: #4A90D9;
+      --cloud-skin: #C2E9FF;
+      --silk-essence: #FFFBEA;
+      --cherry-milk: #EEDAE6;
+      --cocao-root: #3A2B20;
+      --matcha-glow: #F1F1C1;
+      --morning-dew: #FFF9CF;
+
+      /* Docsify 테마 변수 오버라이드 */
+      --base-font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      --base-font-size: 15px;
+      --base-line-height: 1.75;
+      --base-color: var(--cocao-root);
+      --base-background-color: var(--silk-essence);
+
+      --theme-color: var(--cocao-root);
+
+      --sidebar-width: 260px;
+      --sidebar-background: var(--cocao-root);
+      --sidebar-nav-link-color--active: var(--morning-dew);
+      --sidebar-name-color: var(--silk-essence);
+      --sidebar-name-font-size: 1.2rem;
+      --sidebar-nav-link-color: rgba(255,251,234,0.7);
+      --sidebar-nav-link-font-weight: 400;
+
+      --cover-background-color: var(--cloud-skin);
+
+      --heading-color: var(--cocao-root);
+      --heading-h1-font-size: 1.8rem;
+      --heading-h2-font-size: 1.4rem;
+      --heading-h2-border-color: var(--cherry-milk);
+
+      --link-color: #6B4C3B;
+      --link-text-decoration: none;
+
+      --blockquote-border-color: var(--cloud-skin);
+      --blockquote-background: rgba(194,233,255,0.15);
+
+      --table-head-background: var(--cocao-root);
+      --table-head-color: var(--silk-essence);
+      --table-cell-border-color: #E8E0D8;
+
+      --code-inline-background: rgba(238,218,230,0.3);
+      --code-inline-color: #6B4C3B;
+
+      --search-input-border-color: rgba(58,43,32,0.15);
+      --search-input-background-color: #fff;
+    }
+
+    /* === 사이드바 === */
+    .sidebar {
+      background: var(--cocao-root) !important;
+      border-right: none !important;
+      padding-top: 1.5rem;
+    }
+    .sidebar .app-name {
+      padding: 0 1.2rem 1rem;
+    }
+    .sidebar .app-name a {
+      color: var(--silk-essence) !important;
+      font-weight: 700 !important;
+      font-size: 1.1rem !important;
+      letter-spacing: -0.02em;
+    }
+    .sidebar ul li a {
+      color: rgba(255,251,234,0.65) !important;
+      font-size: 0.9rem;
+      padding: 6px 1.2rem !important;
+      border-radius: 8px;
+      margin: 2px 8px;
+      transition: all 0.2s ease;
+    }
+    .sidebar ul li a:hover {
+      color: var(--silk-essence) !important;
+      background: rgba(255,251,234,0.08);
+    }
+    .sidebar ul li.active > a {
+      color: var(--morning-dew) !important;
+      background: rgba(255,249,207,0.12);
+      font-weight: 500;
+    }
+    .sidebar .search {
+      margin: 0 12px 1rem;
+    }
+    .sidebar .search input {
+      background: rgba(255,251,234,0.1) !important;
+      border: 1px solid rgba(255,251,234,0.15) !important;
+      color: var(--silk-essence) !important;
+      border-radius: 8px !important;
+      padding: 8px 12px !important;
+      font-size: 0.85rem;
+    }
+    .sidebar .search input::placeholder {
+      color: rgba(255,251,234,0.4) !important;
+    }
+    .sidebar .search .results-panel {
+      background: var(--cocao-root) !important;
+      border-radius: 8px;
+    }
+    .sidebar .search .matching-post {
+      border-bottom-color: rgba(255,251,234,0.1) !important;
+    }
+    .sidebar .search .matching-post a {
+      color: var(--silk-essence) !important;
+    }
+
+    /* 사이드바 카테고리 구분 (bold 아이템) */
+    .sidebar ul li > strong,
+    .sidebar ul li > p > strong {
+      color: rgba(255,251,234,0.4);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      padding: 12px 1.2rem 4px;
+      margin-left: 8px;
+    }
+
+    /* === 메인 콘텐츠 영역 === */
+    .content {
+      padding: 2rem 2.5rem !important;
+      max-width: 900px;
+    }
+    .markdown-section {
+      max-width: 900px;
+    }
+
+    /* === 카드 스타일 테이블 === */
+    .markdown-section table {
+      display: table;
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(58,43,32,0.06);
+      margin: 1.2rem 0;
+    }
+    .markdown-section table thead {
+      background: var(--cocao-root);
+    }
+    .markdown-section table thead th {
+      color: var(--silk-essence);
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 12px 16px;
+      border: none;
+      text-align: left;
+    }
+    .markdown-section table tbody tr {
+      background: #fff;
+      transition: background 0.15s ease;
+    }
+    .markdown-section table tbody tr:hover {
+      background: rgba(194,233,255,0.15);
+    }
+    .markdown-section table tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #F0EBE5;
+      font-size: 0.9rem;
+      color: var(--cocao-root);
+    }
+    .markdown-section table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* === 헤딩 스타일 === */
+    .markdown-section h1 {
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--matcha-glow);
+      margin-top: 0;
+    }
+    .markdown-section h2 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-top: 2.5rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--cherry-milk);
+    }
+    .markdown-section h3 {
+      font-weight: 500;
+      color: #6B4C3B;
+      margin-top: 1.8rem;
+    }
+
+    /* === 인용 (aside 스타일) === */
+    .markdown-section blockquote {
+      border-left: 4px solid var(--cloud-skin);
+      background: rgba(194,233,255,0.1);
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin: 1rem 0;
+    }
+    .markdown-section blockquote p {
+      color: #5A4535;
+      font-weight: 400;
+    }
+
+    /* === 링크 스타일 === */
+    .markdown-section a {
+      color: #6B4C3B;
+      border-bottom: 1px solid var(--cherry-milk);
+      transition: all 0.15s ease;
+    }
+    .markdown-section a:hover {
+      color: var(--cocao-root);
+      border-bottom-color: var(--cocao-root);
+    }
+
+    /* === 체크박스 === */
+    .markdown-section input[type="checkbox"] {
+      accent-color: var(--cocao-root);
+      width: 16px;
+      height: 16px;
+      margin-right: 6px;
+    }
+
+    /* === 코드 블록 === */
+    .markdown-section code {
+      background: rgba(238,218,230,0.25);
+      color: #6B4C3B;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 0.85em;
+    }
+    .markdown-section pre {
+      background: var(--cocao-root) !important;
+      border-radius: 10px;
+      padding: 1.2rem;
+    }
+    .markdown-section pre code {
+      background: none;
+      color: var(--silk-essence);
+    }
+
+    /* === 페이지 내 네비게이션 카드 === */
+    .nav-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 1.5rem 0;
+    }
+    .nav-card {
+      background: #fff;
+      border: 1px solid #F0EBE5;
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-decoration: none !important;
+      color: var(--cocao-root) !important;
+      transition: all 0.2s ease;
+      border-bottom: none !important;
+      display: block;
+    }
+    .nav-card:hover {
+      border-color: var(--cloud-skin);
+      box-shadow: 0 4px 12px rgba(194,233,255,0.3);
+      transform: translateY(-2px);
+    }
+    .nav-card .nav-card-icon {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+    .nav-card .nav-card-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+    .nav-card .nav-card-desc {
+      font-size: 0.8rem;
+      color: #8B7B6B;
+    }
+
+    /* === 퀵메모 위젯 === */
+    #memo-toggle {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--cocao-root);
+      color: var(--silk-essence);
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(58,43,32,0.25);
+      z-index: 999;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #memo-toggle:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(58,43,32,0.35);
+    }
+    #memo-panel {
+      position: fixed;
+      bottom: 88px;
+      right: 24px;
+      width: 340px;
+      max-height: 450px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(58,43,32,0.15);
+      z-index: 998;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid #F0EBE5;
+    }
+    #memo-panel.open { display: flex; }
+    #memo-panel-header {
+      padding: 14px 18px;
+      background: var(--cocao-root);
+      color: var(--silk-essence);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #memo-panel-header span { font-size: 0.75rem; opacity: 0.6; }
+    #memo-textarea {
+      flex: 1;
+      border: none;
+      padding: 14px 18px;
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      resize: none;
+      min-height: 280px;
+      color: var(--cocao-root);
+      background: #fff;
+    }
+    #memo-textarea:focus { outline: none; }
+    #memo-textarea::placeholder { color: #C4B8A8; }
+    #memo-status {
+      padding: 8px 18px;
+      font-size: 0.75rem;
+      color: #8B7B6B;
+      background: var(--silk-essence);
+      border-top: 1px solid #F0EBE5;
+    }
+
+    /* === 스크롤바 === */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(58,43,32,0.15);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(58,43,32,0.3); }
+
+    /* === 반응형 === */
+    @media (max-width: 768px) {
+      .content { padding: 1.2rem 1rem !important; }
+      .nav-cards { grid-template-columns: 1fr; }
+      #memo-panel { width: calc(100vw - 48px); right: 24px; }
     }
   </style>
 </head>
 <body>
   <div id="app"></div>
+
+  <!-- 퀵메모 위젯 -->
+  <button id="memo-toggle" title="퀵메모">&#9998;</button>
+  <div id="memo-panel">
+    <div id="memo-panel-header">
+      퀵 메모
+      <span>자동 저장</span>
+    </div>
+    <textarea id="memo-textarea" placeholder="메모를 입력하세요...&#10;&#10;이 메모는 브라우저에 자동 저장됩니다."></textarea>
+    <div id="memo-status">저장됨</div>
+  </div>
+
   <script>
+    // 퀵메모 기능
+    const toggle = document.getElementById('memo-toggle');
+    const panel = document.getElementById('memo-panel');
+    const textarea = document.getElementById('memo-textarea');
+    const status = document.getElementById('memo-status');
+
+    toggle.addEventListener('click', () => {
+      panel.classList.toggle('open');
+    });
+
+    // 로컬스토리지에서 메모 불러오기
+    const saved = localStorage.getItem('houseboy-quickmemo');
+    if (saved) textarea.value = saved;
+
+    let saveTimeout;
+    textarea.addEventListener('input', () => {
+      status.textContent = '저장 중...';
+      clearTimeout(saveTimeout);
+      saveTimeout = setTimeout(() => {
+        localStorage.setItem('houseboy-quickmemo', textarea.value);
+        const now = new Date();
+        status.textContent = `저장됨 · ${now.getHours()}:${String(now.getMinutes()).padStart(2,'0')}`;
+      }, 500);
+    });
+
+    // Docsify 설정
     window.$docsify = {
-      name: '제품기획 대시보드',
+      name: '제품기획',
+      nameLink: '/',
       loadSidebar: true,
       subMaxLevel: 2,
       search: {
@@ -24,7 +424,8 @@
         noData: '결과 없음',
         depth: 3
       },
-      auto2top: true
+      auto2top: true,
+      routerMode: 'hash'
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>

@@ -6,7 +6,7 @@
 
 | 날짜 | 리포트 | 주요 키워드 |
 |------|--------|------------|
-| 2026-03-26 | [2026-03-26 리포트](./2026-03-26.md) | 초기 설정 |
+| _다음 업데이트: 3/27(목)_ | - | - |
 
 ---
 
@@ -18,3 +18,20 @@
 - **수납/정리**: 서랍정리, 옷걸이, 바구니
 - **청소용품**: 세탁, 청소도구
 - **펫용품**: 급식기, 장난감, 위생
+
+---
+
+<div class="nav-cards">
+  <a href="#/" class="nav-card">
+    <div class="nav-card-title">← 대시보드</div>
+  </a>
+  <a href="#/기획안/README" class="nav-card">
+    <div class="nav-card-title">기획안 →</div>
+  </a>
+  <a href="#/단가비교/README" class="nav-card">
+    <div class="nav-card-title">단가 비교표 →</div>
+  </a>
+  <a href="#/진행현황/README" class="nav-card">
+    <div class="nav-card-title">진행현황 →</div>
+  </a>
+</div>
