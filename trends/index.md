@@ -6,7 +6,7 @@
 
 | 날짜 | 리포트 | 주요 키워드 |
 |------|--------|------------|
-| 2026-03-27 | [3/27 리포트](./2026-03-27.md) | Aesthetic Utility, CleanTok, Closing Shift 루틴, Scrub Daddy, 리필/에코 |
+| 2026-03-27 | [3/27 리포트](/trends/2026-03-27) | Aesthetic Utility, CleanTok, Closing Shift 루틴, Scrub Daddy, 리필/에코 |
 
 ---
 
@@ -25,13 +25,13 @@
   <a href="#/" class="nav-card">
     <div class="nav-card-title">← 대시보드</div>
   </a>
-  <a href="#/기획안/README" class="nav-card">
+  <a href="#/plans/index" class="nav-card">
     <div class="nav-card-title">기획안 →</div>
   </a>
-  <a href="#/단가비교/README" class="nav-card">
+  <a href="#/pricing/index" class="nav-card">
     <div class="nav-card-title">단가 비교표 →</div>
   </a>
-  <a href="#/진행현황/README" class="nav-card">
+  <a href="#/status/index" class="nav-card">
     <div class="nav-card-title">진행현황 →</div>
   </a>
 </div>

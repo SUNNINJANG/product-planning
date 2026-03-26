@@ -1,7 +1,7 @@
 # 단가 비교표
 
 <div class="nav-cards">
-  <a href="#/기획안/공간탈취제_기획안" class="nav-card">
+  <a href="#/plans/deodorizer" class="nav-card">
     <div class="nav-card-icon">🏠</div>
     <div class="nav-card-title">탈취제 시장가격</div>
     <div class="nav-card-desc">더티린넨 · 위프 · 픽싯 비교</div>
@@ -44,13 +44,13 @@
   <a href="#/" class="nav-card">
     <div class="nav-card-title">← 대시보드</div>
   </a>
-  <a href="#/기획안/README" class="nav-card">
+  <a href="#/plans/index" class="nav-card">
     <div class="nav-card-title">기획안 →</div>
   </a>
-  <a href="#/진행현황/README" class="nav-card">
+  <a href="#/status/index" class="nav-card">
     <div class="nav-card-title">진행현황 →</div>
   </a>
-  <a href="#/트렌드/README" class="nav-card">
+  <a href="#/trends/index" class="nav-card">
     <div class="nav-card-title">트렌드 리포트 →</div>
   </a>
 </div>

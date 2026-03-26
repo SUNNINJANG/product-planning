@@ -29,13 +29,13 @@
   <a href="#/" class="nav-card">
     <div class="nav-card-title">← 대시보드</div>
   </a>
-  <a href="#/기획안/README" class="nav-card">
+  <a href="#/plans/index" class="nav-card">
     <div class="nav-card-title">기획안 →</div>
   </a>
-  <a href="#/단가비교/README" class="nav-card">
+  <a href="#/pricing/index" class="nav-card">
     <div class="nav-card-title">단가 비교표 →</div>
   </a>
-  <a href="#/트렌드/README" class="nav-card">
+  <a href="#/trends/index" class="nav-card">
     <div class="nav-card-title">트렌드 리포트 →</div>
   </a>
 </div>
