@@ -2,16 +2,25 @@
 
 > 제품별 소싱 단계와 업데이트 내역을 관리합니다.
 
+## 출시 로드맵
+
+### 1단계 — 바로 출시 가능 (제조 난이도 낮음, 인허가 부담 적음)
+
 <div class="nav-cards">
   <a href="#/status/deodorizer" class="nav-card">
     <div class="nav-card-icon">🏠</div>
     <div class="nav-card-title">공간 탈취제</div>
-    <div class="nav-card-desc">기획 중</div>
+    <div class="nav-card-desc">① 기획 중</div>
   </a>
+</div>
+
+### 2단계 — 후속 R&D 필요
+
+<div class="nav-cards">
   <a href="#/status/prewash-spray" class="nav-card">
     <div class="nav-card-icon">🧴</div>
     <div class="nav-card-title">프리워시 스프레이</div>
-    <div class="nav-card-desc">기획 중</div>
+    <div class="nav-card-desc">② 업체 리서치 · ODM 컨택 중</div>
   </a>
 </div>
 
@@ -19,12 +28,12 @@
 
 ## 전체 현황 한눈에 보기
 
-| 제품 | 현재 단계 | 다음 할 일 | 상태 |
-|------|----------|-----------|------|
-| 공간 탈취제 | ① 기획 | 업체 리서치 & 컨택 | 🟢 |
-| 프리워시 스프레이 | ① 기획 | 원료사 컨택 | 🟢 |
-| ~~변기청소 솔~~ | - | - | ⛔ Drop |
-| ~~유리&스텐 세정 티슈~~ | - | - | ⛔ Drop |
+| 단계 | 제품 | 현재 단계 | 다음 할 일 | 상태 |
+|------|------|----------|-----------|------|
+| 1단계 | 공간 탈취제 | ① 기획 | 업체 리서치 & 컨택 | 🟢 |
+| 2단계 | 프리워시 스프레이 | ② 업체 리서치 | ODM에 타깃 포뮬러 스펙 전달 | 🟢 |
+| - | ~~변기청소 솔~~ | - | - | ⛔ Drop |
+| - | ~~유리&스텐 세정 티슈~~ | - | - | ⛔ Drop |
 
 ## 소싱 단계 정의
 
