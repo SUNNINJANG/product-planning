@@ -4,8 +4,13 @@
   - [공간 탈취제](/plans/deodorizer)
   - [프리워시 스프레이](/plans/prewash-spray)
   - [아이디어 뱅크](/plans/ideas)
-- **관리**
-  - [단가 비교표](/pricing/index)
-  - [진행현황](/status/index)
+- **단가 비교**
+  - [전체](/pricing/index)
+  - [탈취제 단가](/pricing/deodorizer)
+  - [스프레이 단가](/pricing/prewash-spray)
+- **진행현황**
+  - [전체](/status/index)
+  - [탈취제 진행](/status/deodorizer)
+  - [스프레이 진행](/status/prewash-spray)
 - **리서치**
   - [트렌드 리포트](/trends/index)

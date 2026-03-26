@@ -1,42 +1,28 @@
 # 단가 비교표
 
+> 제품별로 컨택 업체와 견적을 관리합니다.
+
 <div class="nav-cards">
-  <a href="#/plans/deodorizer" class="nav-card">
+  <a href="#/pricing/deodorizer" class="nav-card">
     <div class="nav-card-icon">🏠</div>
-    <div class="nav-card-title">탈취제 시장가격</div>
-    <div class="nav-card-desc">더티린넨 · 위프 · 픽싯 비교</div>
+    <div class="nav-card-title">공간 탈취제</div>
+    <div class="nav-card-desc">케이스 / 겔팩 / 패키징</div>
+  </a>
+  <a href="#/pricing/prewash-spray" class="nav-card">
+    <div class="nav-card-icon">🧴</div>
+    <div class="nav-card-title">프리워시 스프레이</div>
+    <div class="nav-card-desc">ODM / 원료 / 용기</div>
   </a>
 </div>
 
 ---
 
-## 업체 목록
+## 전체 업체 요약
 
-| 업체명 | 주력 분야 | 연락처 | MOQ | 비고 |
-|--------|----------|--------|-----|------|
-| _업체 추가 시 작성_ | | | | |
-
----
-
-## 제품별 단가 비교 템플릿
-
-새 비교표는 `제품명_단가비교.md`로 생성합니다.
-
-```markdown
-# [제품명] 단가 비교
-
-## 비교 일자: YYYY-MM-DD
-
-| 항목 | 업체A | 업체B | 업체C |
-|------|-------|-------|-------|
-| 단가 (개당) | | | |
-| MOQ | | | |
-| 샘플비 | | | |
-| 금형비 | | | |
-| 리드타임 | | | |
-| 배송비 | | | |
-| **총 예상 비용** | | | |
-```
+| 제품 | 컨택 업체 수 | 견적 완료 | 최저 단가 | 상태 |
+|------|-------------|----------|----------|------|
+| 공간 탈취제 | - | - | - | 업체 리서치 중 |
+| 프리워시 스프레이 | - | - | - | 업체 리서치 중 |
 
 ---
 
@@ -49,8 +35,5 @@
   </a>
   <a href="#/status/index" class="nav-card">
     <div class="nav-card-title">진행현황 →</div>
-  </a>
-  <a href="#/trends/index" class="nav-card">
-    <div class="nav-card-title">트렌드 리포트 →</div>
   </a>
 </div>
