@@ -1,16 +1,16 @@
 - [대시보드](/)
 - **기획**
-  - [기획안 목록](/plans/index)
-  - [공간 탈취제](/plans/deodorizer)
-  - [프리워시 스프레이](/plans/prewash-spray)
-  - [아이디어 뱅크](/plans/ideas)
+  - [기획안 목록](plans/index.md)
+  - [공간 탈취제](plans/deodorizer.md)
+  - [프리워시 스프레이](plans/prewash-spray.md)
+  - [아이디어 뱅크](plans/ideas.md)
 - **단가 비교**
-  - [전체](/pricing/index)
-  - [탈취제 단가](/pricing/deodorizer)
-  - [스프레이 단가](/pricing/prewash-spray)
+  - [전체](pricing/index.md)
+  - [탈취제 단가](pricing/deodorizer.md)
+  - [스프레이 단가](pricing/prewash-spray.md)
 - **진행현황**
-  - [전체](/status/index)
-  - [탈취제 진행](/status/deodorizer)
-  - [스프레이 진행](/status/prewash-spray)
+  - [전체](status/index.md)
+  - [탈취제 진행](status/deodorizer.md)
+  - [스프레이 진행](status/prewash-spray.md)
 - **리서치**
-  - [트렌드 리포트](/trends/index)
+  - [트렌드 리포트](trends/index.md)
