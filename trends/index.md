@@ -6,7 +6,7 @@
 
 | 날짜 | 리포트 | 주요 키워드 |
 |------|--------|------------|
-| 2026-03-27 | [3/27 리포트](/trends/2026-03-27) | Aesthetic Utility, CleanTok, Closing Shift 루틴, Scrub Daddy, 리필/에코 |
+| 2026-03-27 | [3/27 리포트](/trends/2026-03-27) | 소프트 미니멀리즘, 근본이즘, CleanTok, HOCl 탈취, Before/After 릴스, Closing Shift 루틴 |
 
 ---
 
