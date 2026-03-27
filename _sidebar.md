@@ -3,7 +3,7 @@
   - [기획안 목록](plans/index.md)
   - [공간 탈취제](plans/deodorizer.md)
   - [프리워시 스프레이](plans/prewash-spray.md)
-  - [폼 건 유제품 트리오](plans/foam-gun.md)
+  - [폼 건 (브랜드 컨셉)](plans/foam-gun.md)
   - [아이디어 뱅크](plans/ideas.md)
 - **단가 비교**
   - [전체](pricing/index.md)
