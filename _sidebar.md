@@ -15,3 +15,5 @@
   - [스프레이 진행](status/prewash-spray.md)
 - **리서치**
   - [트렌드 리포트](trends/index.md)
+- **마케팅 레퍼런스**
+  - [직원·창업자 출연 콘텐츠](marketing/employee-content-references.md)
