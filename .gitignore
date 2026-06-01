@@ -1,0 +1,12 @@
+# Raw 데이터 파일 (개인정보 포함) — README만 추적
+data/raw/*/
+!data/raw/README.md
+
+# 노드 의존성 (분석 스크립트용)
+scripts/node_modules/
+scripts/package-lock.json
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
+.claude/

@@ -1,0 +1,73 @@
+{
+  "_source": "원가 시트 (1mjI1CYltphnWvGnsHotQuDIpy2t4XjRhYKu7fN-Kojc) — 2026-05-27 기준 스냅샷",
+  "_note": "원가 시트가 업데이트되면 다시 동기화 필요. 분석 시 채널 × 제품 × 번들 매칭에 사용.",
+
+  "products": [
+    {
+      "match_patterns": ["더티클레이"],
+      "name": "하우스보이 더티클레이",
+      "variants": [
+        {
+          "bundle": 1,
+          "bundle_keywords": ["1개", "1개입", "1ea"],
+          "is_default_for_quantity_1": true,
+          "channel_pricing": {
+            "자사몰":       { "list": 19000, "sell": 14500, "margin_with_ship": 10603, "cogs": 3800 },
+            "스마트스토어": { "list": 19000, "sell": 14500, "margin_with_ship": 10384, "cogs": 3800 },
+            "쿠팡(그로스)": { "list": 19000, "sell": 17650, "margin_with_ship": 12170, "cogs": 3800 },
+            "쿠팡(윙)":     { "list": 19000, "sell": 16900, "margin_with_ship": 11501, "cogs": 3800 },
+            "오집":         { "list": 19000, "sell": 15215, "margin_with_ship": 9597,  "cogs": 3800 }
+          }
+        },
+        {
+          "bundle": 2,
+          "bundle_keywords": ["2개", "2개입", "2ea"],
+          "channel_pricing": {
+            "자사몰":       { "list": 38000, "sell": 29000, "margin_with_ship": 20766, "cogs": 7600 },
+            "스마트스토어": { "list": 38000, "sell": 29000, "margin_with_ship": 20367, "cogs": 7600 },
+            "쿠팡(그로스)": { "list": 38000, "sell": 32110, "margin_with_ship": 21268, "cogs": 7600 },
+            "쿠팡(윙)":     { "list": 38000, "sell": 32110, "margin_with_ship": 21268, "cogs": 7600 },
+            "오집":         { "list": 38000, "sell": 30430, "margin_with_ship": 19034, "cogs": 7600 }
+          }
+        },
+        {
+          "bundle": 3,
+          "bundle_keywords": ["3개", "3개입", "3ea"],
+          "channel_pricing": {
+            "자사몰":       { "list": 57000, "sell": 43500, "margin_with_ship": 30930, "cogs": 11400 },
+            "스마트스토어": { "list": 57000, "sell": 43500, "margin_with_ship": 30350, "cogs": 11400 },
+            "쿠팡(그로스)": { "list": 57000, "sell": 47700, "margin_with_ship": 31374, "cogs": 11400 },
+            "쿠팡(윙)":     { "list": 57000, "sell": 47590, "margin_with_ship": 31276, "cogs": 11400 },
+            "오집":         { "list": 57000, "sell": 45645, "margin_with_ship": 28471, "cogs": 11400 }
+          }
+        },
+        {
+          "bundle": 4,
+          "bundle_keywords": ["4개", "4개입", "4ea"],
+          "channel_pricing": {
+            "자사몰":       { "list": 76000, "sell": 58000, "margin_with_ship": 38204, "cogs": 15200 },
+            "스마트스토어": { "list": 76000, "sell": 58000, "margin_with_ship": 37481, "cogs": 15200 },
+            "쿠팡(그로스)": { "list": 76000, "sell": 63200, "margin_with_ship": 38724, "cogs": 15200 },
+            "쿠팡(윙)":     { "list": 76000, "sell": 63200, "margin_with_ship": 38724, "cogs": 15200 },
+            "오집":         { "list": 76000, "sell": 60860, "margin_with_ship": 35298, "cogs": 15200 }
+          }
+        }
+      ]
+    },
+    {
+      "match_patterns": ["양면 수세미", "원형 수세미", "수세미"],
+      "name": "수세미 (애드온)",
+      "_note": "함께 사용하기 좋아요 옵션. 단독 판매 아닌 add-on이라 매출만 잡고 마진은 0으로 보수적 처리(원가 미확인).",
+      "variants": [
+        {
+          "bundle": 1,
+          "is_default_for_quantity_1": true,
+          "channel_pricing": {
+            "자사몰":       { "list": 2500, "sell": 2500, "margin_with_ship": 0, "cogs": 2500 },
+            "스마트스토어": { "list": 2500, "sell": 2500, "margin_with_ship": 0, "cogs": 2500 }
+          }
+        }
+      ]
+    }
+  ]
+}
