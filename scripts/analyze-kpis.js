@@ -19,6 +19,15 @@ const assumptions = JSON.parse(fs.readFileSync(path.join(ROOT, 'config', 'kpi-as
 const historyPath = path.join(ROOT, 'data', 'processed', 'kpi-history.json');
 const existingHistory = JSON.parse(fs.readFileSync(historyPath, 'utf-8'));
 
+// GA4 시트 데이터 (Claude가 시트 읽어서 갱신)
+const ga4Path = path.join(ROOT, 'data', 'processed', 'ga4-history.json');
+let ga4Data = null;
+try {
+  ga4Data = JSON.parse(fs.readFileSync(ga4Path, 'utf-8'));
+} catch (e) {
+  console.log('⚠ GA4 데이터 없음 — 오가닉 서치 비중 미계산');
+}
+
 // 광고비 (사용자 제공)
 const META_AD_DAILY = 230000;
 const SS_AD_DAILY = 25000;
@@ -248,6 +257,19 @@ for (const date of allDates) {
   const naverPayOrders = dayImweb.filter(o => imwebOrders.find(io => io.orderId === o.orderId));
   // (이미 모두 자사몰로 카운트됨)
 
+  // GA4 기반 오가닉 서치 비중 (해당 날짜)
+  let organicSearchRatio = null;
+  let gaTotalRevenue = null;
+  let gaOrganicRevenue = null;
+  if (ga4Data) {
+    const dayGA = ga4Data.data.filter(r => r.date === date);
+    if (dayGA.length > 0) {
+      gaTotalRevenue = dayGA.reduce((s, r) => s + r.transactions * r.avgRevenue, 0);
+      gaOrganicRevenue = dayGA.filter(r => r.isOrganic).reduce((s, r) => s + r.transactions * r.avgRevenue, 0);
+      organicSearchRatio = gaTotalRevenue > 0 ? gaOrganicRevenue / gaTotalRevenue : 0;
+    }
+  }
+
   const kpi = {
     date,
     revenue_owned: revOwned,
@@ -270,7 +292,9 @@ for (const date of allDates) {
     contribution_profit_per_order_before_ads: cpoBeforeAds,
     ad_spend_meta: META_AD_DAILY,
     ad_spend_ss_search: SS_AD_DAILY,
-    organic_search_ratio: null,
+    organic_search_ratio: organicSearchRatio,
+    ga_total_revenue: gaTotalRevenue,
+    ga_organic_revenue: gaOrganicRevenue,
     email_subscribers: null,
     kakao_plus_friends: null
   };

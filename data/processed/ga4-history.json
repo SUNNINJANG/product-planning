@@ -1,0 +1,47 @@
+{
+  "_source": "https://docs.google.com/spreadsheets/d/1JQ7Lg8eblnvUQkKoqvQcfqIHPsu4FCXaZ7QsviNmt_Q",
+  "_lastSynced": "2026-06-01",
+  "_note": "GA4 → Sheets 자동 export. 분석 시 Claude가 시트 다시 읽어서 갱신.",
+
+  "organic_definition": {
+    "rules": [
+      "sessionMedium == 'organic' (구글·네이버·다음 등 표준 오가닉)",
+      "sessionSource == 'm.search.naver.com' (네이버 모바일 검색 referral — 사실상 오가닉)"
+    ]
+  },
+
+  "data": [
+    {"date": "2026-05-02", "source": "ig", "medium": "paid", "sessions": 829, "transactions": 58, "avgRevenue": 18195.17, "isOrganic": false},
+    {"date": "2026-05-02", "source": "(direct)", "medium": "(none)", "sessions": 57, "transactions": 18, "avgRevenue": 17680.00, "isOrganic": false},
+    {"date": "2026-05-02", "source": "m.search.naver.com", "medium": "referral", "sessions": 22, "transactions": 1, "avgRevenue": 15900.00, "isOrganic": true},
+    {"date": "2026-05-02", "source": "instagram", "medium": "display", "sessions": 33, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+
+    {"date": "2026-05-28", "source": "ig", "medium": "paid", "sessions": 449, "transactions": 29, "avgRevenue": 18006.90, "isOrganic": false},
+    {"date": "2026-05-28", "source": "(direct)", "medium": "(none)", "sessions": 52, "transactions": 9, "avgRevenue": 22751.11, "isOrganic": false},
+    {"date": "2026-05-28", "source": "m.search.naver.com", "medium": "referral", "sessions": 25, "transactions": 1, "avgRevenue": 15900.00, "isOrganic": true},
+    {"date": "2026-05-28", "source": "th", "medium": "paid", "sessions": 19, "transactions": 1, "avgRevenue": 16900.00, "isOrganic": false},
+    {"date": "2026-05-28", "source": "google", "medium": "organic", "sessions": 9, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-05-28", "source": "naver", "medium": "organic", "sessions": 7, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-05-28", "source": "an", "medium": "paid", "sessions": 9, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+
+    {"date": "2026-05-29", "source": "ig", "medium": "paid", "sessions": 295, "transactions": 9, "avgRevenue": 18944.44, "isOrganic": false},
+    {"date": "2026-05-29", "source": "(direct)", "medium": "(none)", "sessions": 45, "transactions": 14, "avgRevenue": 22673.21, "isOrganic": false},
+    {"date": "2026-05-29", "source": "m.search.naver.com", "medium": "referral", "sessions": 18, "transactions": 1, "avgRevenue": 17500.00, "isOrganic": true},
+    {"date": "2026-05-29", "source": "th", "medium": "paid", "sessions": 14, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+    {"date": "2026-05-29", "source": "google", "medium": "organic", "sessions": 7, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-05-29", "source": "an", "medium": "paid", "sessions": 6, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+    {"date": "2026-05-29", "source": "m.blog.naver.com", "medium": "referral", "sessions": 7, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+
+    {"date": "2026-05-30", "source": "ig", "medium": "paid", "sessions": 306, "transactions": 12, "avgRevenue": 23458.33, "isOrganic": false},
+    {"date": "2026-05-30", "source": "(direct)", "medium": "(none)", "sessions": 51, "transactions": 8, "avgRevenue": 25775.00, "isOrganic": false},
+    {"date": "2026-05-30", "source": "m.search.naver.com", "medium": "referral", "sessions": 20, "transactions": 2, "avgRevenue": 30500.00, "isOrganic": true},
+    {"date": "2026-05-30", "source": "th", "medium": "paid", "sessions": 13, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+
+    {"date": "2026-05-31", "source": "ig", "medium": "paid", "sessions": 154, "transactions": 3, "avgRevenue": 18333.33, "isOrganic": false},
+    {"date": "2026-05-31", "source": "m.search.naver.com", "medium": "referral", "sessions": 29, "transactions": 1, "avgRevenue": 20000.00, "isOrganic": true},
+    {"date": "2026-05-31", "source": "(direct)", "medium": "(none)", "sessions": 20, "transactions": 3, "avgRevenue": 22000.00, "isOrganic": false},
+    {"date": "2026-05-31", "source": "google", "medium": "organic", "sessions": 8, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-05-31", "source": "orders.pay.naver.com", "medium": "referral", "sessions": 7, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+    {"date": "2026-05-31", "source": "shopping.naver.com", "medium": "referral", "sessions": 7, "transactions": 1, "avgRevenue": 17500.00, "isOrganic": false}
+  ]
+}

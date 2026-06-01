@@ -49,8 +49,11 @@
   },
 
   "marketing_attribution": {
-    "method": "TBD",
-    "_note": "UTM 미적용 상태. 오가닉 서치 비중은 GA4 또는 아임웹 유입통계 연동 후 활성화 예정."
+    "method": "GA4 via Google Sheets",
+    "ga4_sheet_url": "https://docs.google.com/spreadsheets/d/1JQ7Lg8eblnvUQkKoqvQcfqIHPsu4FCXaZ7QsviNmt_Q/edit",
+    "ga4_sheet_id": "1JQ7Lg8eblnvUQkKoqvQcfqIHPsu4FCXaZ7QsviNmt_Q",
+    "organic_definition": "sessionMedium=='organic' OR sessionSource=='m.search.naver.com'",
+    "_note": "한국 환경 맞춤: 네이버 검색은 m.search.naver.com referral로 들어와도 오가닉으로 카운트."
   },
 
   "kpi_targets": {
