@@ -1,6 +1,6 @@
 # KPI 대시보드
 
-> 자사몰 매출·메타 의존도·재구매율·AOV·CAC·기여이익·구독자 현황
+> 자사몰 매출·오가닉 서치 비중·재구매율·AOV·CAC·기여이익·구독자 현황
 
 <div id="kpi-loading" style="text-align:center;padding:40px;color:#8B7B6B;">
   데이터 불러오는 중...
@@ -11,14 +11,20 @@
 <!-- 최근 데이터 요약 카드 -->
 <div id="kpi-summary-cards"></div>
 
-## 📈 매출 & 메타 의존도
+## 📈 매출
 
 <div style="background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(58,43,32,0.06);margin:1rem 0;">
   <canvas id="chart-revenue" style="max-height:280px;"></canvas>
 </div>
 
+## 🌱 오가닉 서치 비중 (목표 15%)
+
 <div style="background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(58,43,32,0.06);margin:1rem 0;">
-  <canvas id="chart-meta-dep" style="max-height:280px;"></canvas>
+  <canvas id="chart-organic" style="max-height:280px;"></canvas>
+  <div id="organic-pending" style="display:none;text-align:center;padding:30px;color:#8B7B6B;font-size:0.9rem;">
+    📡 GA4 또는 아임웹 유입통계 연동 후 활성화됩니다.<br>
+    <span style="font-size:0.8rem;">(현재는 데이터 소스 미연결 상태)</span>
+  </div>
 </div>
 
 ## 💰 단가 지표 (AOV · CAC · 기여이익)
@@ -108,7 +114,7 @@
 
     const cards = [
       { label: '자사몰 매출', value: KRW(latest.revenue_owned), trend: trend(latest.revenue_owned, prev?.revenue_owned) },
-      { label: '메타 의존도', value: PCT(latest.meta_dependency_ratio), trend: trend(latest.meta_dependency_ratio, prev?.meta_dependency_ratio, null, true) },
+      { label: '오가닉 서치 비중', value: latest.organic_search_ratio != null ? PCT(latest.organic_search_ratio) : '셋업 대기', trend: trend(latest.organic_search_ratio, prev?.organic_search_ratio) },
       { label: '재구매율', value: PCT(latest.repurchase_rate), trend: trend(latest.repurchase_rate, prev?.repurchase_rate) },
       { label: 'AOV', value: KRW(latest.aov), trend: trend(latest.aov, prev?.aov) },
       { label: 'CAC', value: KRW(latest.cac), trend: trend(latest.cac, prev?.cac, null, true) },
@@ -138,43 +144,58 @@
 
     const labels = history.map(d => d.date);
 
-    // 1) 매출 차트
+    // 1) 채널별 매출 (자사몰 + 스마트스토어 + 쿠팡 + 오집)
     new Chart(document.getElementById('chart-revenue'), {
       type: 'bar',
       data: {
         labels,
         datasets: [
           { label: '자사몰', data: history.map(d => d.revenue_owned), backgroundColor: C.cocao, stack: 'rev' },
-          { label: '스마트스토어', data: history.map(d => d.revenue_smartstore), backgroundColor: C.cherry, stack: 'rev' }
+          { label: '스마트스토어', data: history.map(d => d.revenue_smartstore), backgroundColor: C.cherry, stack: 'rev' },
+          { label: '쿠팡', data: history.map(d => d.revenue_coupang), backgroundColor: '#FAE100', stack: 'rev' },
+          { label: '오집', data: history.map(d => d.revenue_ozzip), backgroundColor: C.cloud, stack: 'rev' }
         ]
       },
       options: {
         responsive: true,
-        plugins: { title: { display: true, text: '일별 매출 (자사몰 + 스마트스토어)' } },
+        plugins: { title: { display: true, text: '채널별 일 매출' } },
         scales: { y: { stacked: true, ticks: { callback: v => '₩' + (v/1000).toFixed(0) + 'k' } }, x: { stacked: true } }
       }
     });
 
-    // 2) 메타 의존도
-    new Chart(document.getElementById('chart-meta-dep'), {
-      type: 'line',
-      data: {
-        labels,
-        datasets: [{
-          label: '메타 의존 매출 비중',
-          data: history.map(d => d.meta_dependency_ratio != null ? d.meta_dependency_ratio * 100 : null),
-          borderColor: C.redAlert,
-          backgroundColor: 'rgba(217,119,87,0.1)',
-          fill: true,
-          tension: 0.3
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: { title: { display: true, text: '메타 의존 매출 비중 (%)' } },
-        scales: { y: { ticks: { callback: v => v + '%' } } }
-      }
-    });
+    // 2) 오가닉 서치 비중 (GA4 데이터가 있을 때만 그림)
+    const hasOrganicData = history.some(d => d.organic_search_ratio != null);
+    if (hasOrganicData) {
+      new Chart(document.getElementById('chart-organic'), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            label: '오가닉 서치 비중',
+            data: history.map(d => d.organic_search_ratio != null ? d.organic_search_ratio * 100 : null),
+            borderColor: C.green,
+            backgroundColor: 'rgba(123,160,91,0.1)',
+            fill: true,
+            tension: 0.3
+          }, {
+            label: '목표 15%',
+            data: history.map(() => 15),
+            borderColor: C.brown,
+            borderDash: [5, 5],
+            pointRadius: 0,
+            fill: false
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { title: { display: true, text: '오가닉 서치 비중 (%)' } },
+          scales: { y: { ticks: { callback: v => v + '%' } } }
+        }
+      });
+    } else {
+      document.getElementById('chart-organic').style.display = 'none';
+      document.getElementById('organic-pending').style.display = 'block';
+    }
 
     // 3) 단가
     new Chart(document.getElementById('chart-unit-economics'), {

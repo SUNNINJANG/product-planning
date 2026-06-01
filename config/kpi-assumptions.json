@@ -1,32 +1,81 @@
 {
-  "_comment": "KPI 계산에 사용되는 가정값. 사용자가 채팅으로 알려준 값으로 업데이트할 것.",
+  "_comment": "KPI 계산 가정값. 원가/마진 상세는 별도 구글 시트에서 라이브 참조.",
   "_lastUpdated": "2026-05-27",
 
-  "cost_structure": {
-    "cogs_ratio": 0.30,
-    "_cogs_ratio_note": "원가율 — 임시값 30%. 실제 값으로 교체 필요",
+  "cost_sheet": {
+    "url": "https://docs.google.com/spreadsheets/d/1mjI1CYltphnWvGnsHotQuDIpy2t4XjRhYKu7fN-Kojc/edit",
+    "fileId": "1mjI1CYltphnWvGnsHotQuDIpy2t4XjRhYKu7fN-Kojc",
+    "_note": "원가·정가·마진 룩업 — 분석 시 이 시트를 직접 읽어서 (채널 × 제품) 매칭. 시트 수정 시 자동 반영."
+  },
 
-    "logistics_per_order_krw": 3000,
-    "_logistics_note": "객당 평균 물류비(택배+박스+포장) — 임시값",
+  "channels": {
+    "자사몰": {
+      "display_name": "자사몰 (아임웹)",
+      "card_fee_ratio": 0.037,
+      "platform_fee_ratio": 0,
+      "_note": "PG 카드 수수료만 차감"
+    },
+    "스마트스토어": {
+      "display_name": "네이버 스마트스토어",
+      "card_fee_ratio": 0.049,
+      "platform_fee_ratio": 0,
+      "_note": "네이버페이 수수료 4.9% (카드 결제 기준)"
+    },
+    "쿠팡(그로스)": {
+      "display_name": "쿠팡 (Growth/로켓그로스)",
+      "card_fee_ratio": 0,
+      "platform_fee_ratio": 0.108,
+      "_note": "수수료 10.8% (카드수수료 통합)"
+    },
+    "쿠팡(윙)": {
+      "display_name": "쿠팡 (Wing/마켓플레이스)",
+      "card_fee_ratio": 0,
+      "platform_fee_ratio": 0.108,
+      "_note": "수수료 10.8% (카드수수료 통합)"
+    },
+    "오집": {
+      "display_name": "오집",
+      "card_fee_ratio": 0,
+      "platform_fee_ratio": 0.13,
+      "_note": "오집 수수료 13%"
+    }
+  },
 
-    "payment_fee_ratio": 0.033,
-    "_payment_fee_note": "결제 수수료율(PG+카드) — 임시값 3.3%",
-
-    "platform_fee_ratio_smartstore": 0.058,
-    "_platform_fee_note": "스마트스토어 매출연동수수료(주문관리수수료 포함) — 약 5.8% 추정"
+  "shipping_defaults": {
+    "shipping_fee_krw": 2150,
+    "box_fee_krw": 300,
+    "total_per_order_krw": 2450,
+    "_note": "원가 시트 기본값. 벌크/선물포장은 시트에서 변동"
   },
 
   "marketing_attribution": {
-    "meta_utm_sources": ["meta", "facebook", "instagram", "ig", "fb"],
-    "_attribution_note": "이 UTM source는 메타 광고로 카운트. 자사몰 주문 데이터의 utm_source 컬럼 기준"
+    "method": "TBD",
+    "_note": "UTM 미적용 상태. 오가닉 서치 비중은 GA4 또는 아임웹 유입통계 연동 후 활성화 예정."
   },
 
   "kpi_targets": {
-    "_comment": "목표치 — 차트에 가이드라인으로 표시. 모두 임시값",
-    "meta_dependency_ratio_target": 0.40,
+    "organic_search_ratio_target": 0.15,
+    "_organic_note": "오가닉 서치 매출 비중 목표 15% — 메타 의존도 줄이기보다 오가닉 채널 키우는 적극적 목표",
+
+    "aov_krw_target": 30000,
+    "_aov_note": "객단가 목표 3만원",
+
+    "cac_krw_target": 15000,
+    "_cac_note": "신규 고객 1명 확보 비용 목표 1.5만원",
+
     "repurchase_rate_target": 0.20,
-    "aov_target_krw": 30000,
-    "cac_target_krw": 15000,
-    "contribution_profit_per_order_target_krw": 5000
+    "_repurchase_note": "재구매율 20% (임시 — 실제 데이터 쌓이면 조정)",
+
+    "contribution_profit_per_order_target_krw": 8000
+  },
+
+  "_kpi_calculation_logic": {
+    "revenue_owned": "자사몰(아임웹) 결제완료 주문의 결제금액 합계",
+    "revenue_total": "전체 채널 결제완료 주문 합계",
+    "aov": "자사몰 매출 ÷ 자사몰 주문 건수",
+    "repurchase_rate": "기간 내 주문자 중 과거 주문 이력 있는 사람 ÷ 기간 내 전체 주문자",
+    "cac": "일별 마케팅비(메타+구글 광고비) ÷ 일별 자사몰 신규 고객 수",
+    "contribution_profit_per_order": "주문별: (룩업한 마진[배송포함]) - (채널 수수료) — 채널×제품 매칭으로 정확 계산",
+    "organic_search_ratio": "(오가닉 서치 매출) ÷ (자사몰 총 매출) — GA4 연동 후 활성화"
   }
 }
