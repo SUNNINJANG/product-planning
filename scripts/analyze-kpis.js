@@ -318,12 +318,21 @@ for (const date of allDates) {
   dailyKPIs.push(kpi);
 }
 
-// === history 업데이트 (날짜 중복 시 덮어쓰기) ===
+// === history 업데이트 (재실행 시에도 수동 입력 필드는 보존) ===
+const PRESERVE_FIELDS = ['kakao_plus_friends', 'kakao_plus_friends_growth', 'email_subscribers'];
 const updatedHistory = [...existingHistory];
 for (const kpi of dailyKPIs) {
   const idx = updatedHistory.findIndex(h => h.date === kpi.date);
-  if (idx >= 0) updatedHistory[idx] = kpi;
-  else updatedHistory.push(kpi);
+  if (idx >= 0) {
+    // 기존 값 중 수동 입력 필드는 보존 (덮어쓰지 않음)
+    const preserved = {};
+    for (const f of PRESERVE_FIELDS) {
+      if (updatedHistory[idx][f] != null) preserved[f] = updatedHistory[idx][f];
+    }
+    updatedHistory[idx] = { ...kpi, ...preserved };
+  } else {
+    updatedHistory.push(kpi);
+  }
 }
 updatedHistory.sort((a, b) => a.date.localeCompare(b.date));
 

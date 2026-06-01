@@ -67,6 +67,10 @@
   <canvas id="chart-subscribers" style="max-height:280px;"></canvas>
 </div>
 
+<div style="background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(58,43,32,0.06);margin:1rem 0;">
+  <canvas id="chart-kakao-growth" style="max-height:240px;"></canvas>
+</div>
+
 ## 📅 일별 리포트
 
 <div id="daily-reports-list"></div>
@@ -142,7 +146,8 @@
       { label: '오가닉 비중', value: latest.organic_search_ratio != null ? PCT(latest.organic_search_ratio) : '-', trend: trend(latest.organic_search_ratio, prev?.organic_search_ratio) },
       { label: 'AOV', value: KRW(latest.aov), trend: trend(latest.aov, prev?.aov) },
       { label: 'CAC', value: KRW(latest.cac), trend: trend(latest.cac, prev?.cac, null, true) },
-      { label: '객당 기여이익', value: KRW(latest.contribution_profit_per_order), trend: trend(latest.contribution_profit_per_order, prev?.contribution_profit_per_order) }
+      { label: '객당 기여이익', value: KRW(latest.contribution_profit_per_order), trend: trend(latest.contribution_profit_per_order, prev?.contribution_profit_per_order) },
+      { label: '플친 (누적)', value: N(latest.kakao_plus_friends), trend: latest.kakao_plus_friends_growth != null ? `<span style="color:${C.green};font-size:0.78rem;margin-left:6px;">+${latest.kakao_plus_friends_growth}</span>` : '' }
     ];
 
     document.getElementById('kpi-summary-cards').innerHTML = `
@@ -354,21 +359,46 @@
       }
     });
 
-    // 5) 구독자
+    // 5) 구독자 누적 추이
     new Chart(document.getElementById('chart-subscribers'), {
       type: 'line',
       data: {
         labels,
         datasets: [
           { label: '이메일 구독자', data: history.map(d => d.email_subscribers), borderColor: C.cocao, tension: 0.3, yAxisID: 'y' },
-          { label: '플친 (카카오)', data: history.map(d => d.kakao_plus_friends), borderColor: '#FAE100', backgroundColor: 'rgba(250,225,0,0.1)', tension: 0.3, yAxisID: 'y' }
+          { label: '플친 (카카오)', data: history.map(d => d.kakao_plus_friends), borderColor: '#3C1E1E', backgroundColor: 'rgba(60,30,30,0.05)', tension: 0.3, yAxisID: 'y', fill: true }
         ]
       },
       options: {
         responsive: true,
-        plugins: { title: { display: true, text: '채널 구독자 추이' } }
+        plugins: { title: { display: true, text: '채널 구독자 누적' } }
       }
     });
+
+    // 5.5) 플친 일별 증가수
+    const hasKakaoGrowth = history.some(d => d.kakao_plus_friends_growth != null);
+    if (hasKakaoGrowth) {
+      new Chart(document.getElementById('chart-kakao-growth'), {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            label: '플친 일 증가수',
+            data: history.map(d => d.kakao_plus_friends_growth),
+            backgroundColor: '#FAE100',
+            borderColor: '#3C1E1E',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { title: { display: true, text: '플친 일별 증가수 (명)' } },
+          scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+        }
+      });
+    } else {
+      document.getElementById('chart-kakao-growth').style.display = 'none';
+    }
 
     // 일별 리포트 링크
     const reportLinks = history.slice().reverse().slice(0, 30).map(d =>

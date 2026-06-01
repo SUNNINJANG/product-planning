@@ -29,7 +29,8 @@
     "ga_direct_revenue": 204759.99,
     "meta_roas": 2.2704352173913045,
     "email_subscribers": null,
-    "kakao_plus_friends": null
+    "kakao_plus_friends": 8880,
+    "kakao_plus_friends_growth": 13
   },
   {
     "date": "2026-05-29",
@@ -61,7 +62,8 @@
     "ga_direct_revenue": 317424.94,
     "meta_roas": 0.7413041739130435,
     "email_subscribers": null,
-    "kakao_plus_friends": null
+    "kakao_plus_friends": 8892,
+    "kakao_plus_friends_growth": 19
   },
   {
     "date": "2026-05-30",
@@ -93,7 +95,8 @@
     "ga_direct_revenue": 206200,
     "meta_roas": 1.2239128695652175,
     "email_subscribers": null,
-    "kakao_plus_friends": null
+    "kakao_plus_friends": 8911,
+    "kakao_plus_friends_growth": 25
   },
   {
     "date": "2026-05-31",
@@ -125,7 +128,8 @@
     "ga_direct_revenue": 66000,
     "meta_roas": 0.23913039130434785,
     "email_subscribers": null,
-    "kakao_plus_friends": null
+    "kakao_plus_friends": 8916,
+    "kakao_plus_friends_growth": 7
   },
   {
     "date": "2026-06-01",
