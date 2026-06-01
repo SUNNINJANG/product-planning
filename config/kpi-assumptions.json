@@ -1,0 +1,32 @@
+{
+  "_comment": "KPI 계산에 사용되는 가정값. 사용자가 채팅으로 알려준 값으로 업데이트할 것.",
+  "_lastUpdated": "2026-05-27",
+
+  "cost_structure": {
+    "cogs_ratio": 0.30,
+    "_cogs_ratio_note": "원가율 — 임시값 30%. 실제 값으로 교체 필요",
+
+    "logistics_per_order_krw": 3000,
+    "_logistics_note": "객당 평균 물류비(택배+박스+포장) — 임시값",
+
+    "payment_fee_ratio": 0.033,
+    "_payment_fee_note": "결제 수수료율(PG+카드) — 임시값 3.3%",
+
+    "platform_fee_ratio_smartstore": 0.058,
+    "_platform_fee_note": "스마트스토어 매출연동수수료(주문관리수수료 포함) — 약 5.8% 추정"
+  },
+
+  "marketing_attribution": {
+    "meta_utm_sources": ["meta", "facebook", "instagram", "ig", "fb"],
+    "_attribution_note": "이 UTM source는 메타 광고로 카운트. 자사몰 주문 데이터의 utm_source 컬럼 기준"
+  },
+
+  "kpi_targets": {
+    "_comment": "목표치 — 차트에 가이드라인으로 표시. 모두 임시값",
+    "meta_dependency_ratio_target": 0.40,
+    "repurchase_rate_target": 0.20,
+    "aov_target_krw": 30000,
+    "cac_target_krw": 15000,
+    "contribution_profit_per_order_target_krw": 5000
+  }
+}

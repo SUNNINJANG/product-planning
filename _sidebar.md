@@ -1,4 +1,7 @@
 - [대시보드](/)
+- **운영 지표**
+  - [KPI 대시보드](dashboard/index.md)
+  - [데이터 업로드 가이드](data/raw/README.md)
 - **기획**
   - [기획안 목록](plans/index.md)
   - [공간 탈취제](plans/deodorizer.md)
@@ -17,3 +20,5 @@
   - [트렌드 리포트](trends/index.md)
 - **마케팅 레퍼런스**
   - [직원·창업자 출연 콘텐츠](marketing/employee-content-references.md)
+- **콘텐츠 기획**
+  - [더티클레이 인스타 콘텐츠](marketing/dirty-clay-content-plan.md)
