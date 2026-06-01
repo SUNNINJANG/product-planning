@@ -53,7 +53,8 @@ data/raw/2026-05-27/
 
 ## 4. 유입 경로 (오가닉 서치 비중 — GA4 연동 후)
 
-GA4를 Google Sheets와 연동(GA4 Reports Builder 부가기능)하면 자동으로 채워집니다. 셋업 가이드는 별도 안내.
+GA4를 Google Sheets와 연동하면 자동으로 채워집니다.
+**📘 셋업 가이드**: [GA4 → Sheets 연동 가이드](GA4-SHEETS-SETUP.md)
 
 ```
 | 날짜 | source | medium | sessions | conversions | revenue |
