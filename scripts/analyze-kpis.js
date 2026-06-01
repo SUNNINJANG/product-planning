@@ -257,16 +257,29 @@ for (const date of allDates) {
   const naverPayOrders = dayImweb.filter(o => imwebOrders.find(io => io.orderId === o.orderId));
   // (이미 모두 자사몰로 카운트됨)
 
-  // GA4 기반 오가닉 서치 비중 (해당 날짜)
+  // GA4 기반 매체별 매출 (해당 날짜)
   let organicSearchRatio = null;
   let gaTotalRevenue = null;
   let gaOrganicRevenue = null;
+  let gaAdRevenue = null;
+  let gaMetaAdRevenue = null;
+  let gaDirectRevenue = null;
+  let metaRoas = null;
   if (ga4Data) {
     const dayGA = ga4Data.data.filter(r => r.date === date);
     if (dayGA.length > 0) {
+      const META_SOURCES = ['ig', 'instagram', 'fb', 'facebook', 'm.facebook.com', 'facebook.com', 'instagram.com'];
+      const PAID_MEDIA = ['paid', 'display', 'cpc'];
+
       gaTotalRevenue = dayGA.reduce((s, r) => s + r.transactions * r.avgRevenue, 0);
       gaOrganicRevenue = dayGA.filter(r => r.isOrganic).reduce((s, r) => s + r.transactions * r.avgRevenue, 0);
+      gaAdRevenue = dayGA.filter(r => PAID_MEDIA.includes(r.medium)).reduce((s, r) => s + r.transactions * r.avgRevenue, 0);
+      gaMetaAdRevenue = dayGA.filter(r => META_SOURCES.includes(r.source) && PAID_MEDIA.includes(r.medium))
+        .reduce((s, r) => s + r.transactions * r.avgRevenue, 0);
+      gaDirectRevenue = dayGA.filter(r => r.source === '(direct)').reduce((s, r) => s + r.transactions * r.avgRevenue, 0);
+
       organicSearchRatio = gaTotalRevenue > 0 ? gaOrganicRevenue / gaTotalRevenue : 0;
+      metaRoas = META_AD_DAILY > 0 ? gaMetaAdRevenue / META_AD_DAILY : null;
     }
   }
 
@@ -295,6 +308,10 @@ for (const date of allDates) {
     organic_search_ratio: organicSearchRatio,
     ga_total_revenue: gaTotalRevenue,
     ga_organic_revenue: gaOrganicRevenue,
+    ga_ad_revenue: gaAdRevenue,
+    ga_meta_ad_revenue: gaMetaAdRevenue,
+    ga_direct_revenue: gaDirectRevenue,
+    meta_roas: metaRoas,
     email_subscribers: null,
     kakao_plus_friends: null
   };

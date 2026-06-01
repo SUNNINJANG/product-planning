@@ -24,6 +24,10 @@
     "organic_search_ratio": 0.020927658887689136,
     "ga_total_revenue": 759760.0900000001,
     "ga_organic_revenue": 15900,
+    "ga_ad_revenue": 539100.1000000001,
+    "ga_meta_ad_revenue": 522200.10000000003,
+    "ga_direct_revenue": 204759.99,
+    "meta_roas": 2.2704352173913045,
     "email_subscribers": null,
     "kakao_plus_friends": null
   },
@@ -52,6 +56,10 @@
     "organic_search_ratio": 0.0346243329127631,
     "ga_total_revenue": 505424.9,
     "ga_organic_revenue": 17500,
+    "ga_ad_revenue": 170499.96,
+    "ga_meta_ad_revenue": 170499.96,
+    "ga_direct_revenue": 317424.94,
+    "meta_roas": 0.7413041739130435,
     "email_subscribers": null,
     "kakao_plus_friends": null
   },
@@ -80,6 +88,10 @@
     "organic_search_ratio": 0.11117186886618327,
     "ga_total_revenue": 548699.96,
     "ga_organic_revenue": 61000,
+    "ga_ad_revenue": 281499.96,
+    "ga_meta_ad_revenue": 281499.96,
+    "ga_direct_revenue": 206200,
+    "meta_roas": 1.2239128695652175,
     "email_subscribers": null,
     "kakao_plus_friends": null
   },
@@ -108,6 +120,10 @@
     "organic_search_ratio": 0.12618297326075542,
     "ga_total_revenue": 158499.99,
     "ga_organic_revenue": 20000,
+    "ga_ad_revenue": 54999.990000000005,
+    "ga_meta_ad_revenue": 54999.990000000005,
+    "ga_direct_revenue": 66000,
+    "meta_roas": 0.23913039130434785,
     "email_subscribers": null,
     "kakao_plus_friends": null
   },
@@ -136,6 +152,10 @@
     "organic_search_ratio": null,
     "ga_total_revenue": null,
     "ga_organic_revenue": null,
+    "ga_ad_revenue": null,
+    "ga_meta_ad_revenue": null,
+    "ga_direct_revenue": null,
+    "meta_roas": null,
     "email_subscribers": null,
     "kakao_plus_friends": null
   }

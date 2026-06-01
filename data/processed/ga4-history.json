@@ -11,11 +11,6 @@
   },
 
   "data": [
-    {"date": "2026-05-02", "source": "ig", "medium": "paid", "sessions": 829, "transactions": 58, "avgRevenue": 18195.17, "isOrganic": false},
-    {"date": "2026-05-02", "source": "(direct)", "medium": "(none)", "sessions": 57, "transactions": 18, "avgRevenue": 17680.00, "isOrganic": false},
-    {"date": "2026-05-02", "source": "m.search.naver.com", "medium": "referral", "sessions": 22, "transactions": 1, "avgRevenue": 15900.00, "isOrganic": true},
-    {"date": "2026-05-02", "source": "instagram", "medium": "display", "sessions": 33, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
-
     {"date": "2026-05-28", "source": "ig", "medium": "paid", "sessions": 449, "transactions": 29, "avgRevenue": 18006.90, "isOrganic": false},
     {"date": "2026-05-28", "source": "(direct)", "medium": "(none)", "sessions": 52, "transactions": 9, "avgRevenue": 22751.11, "isOrganic": false},
     {"date": "2026-05-28", "source": "m.search.naver.com", "medium": "referral", "sessions": 25, "transactions": 1, "avgRevenue": 15900.00, "isOrganic": true},
