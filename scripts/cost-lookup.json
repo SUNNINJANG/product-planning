@@ -55,6 +55,39 @@
       ]
     },
     {
+      "match_patterns": ["세안수건 스트라이프민트 10개입", "스트라이프민트 10개입"],
+      "name": "세안수건 스트라이프민트 10개입 (벌크포장)",
+      "variants": [{
+        "bundle": 1,
+        "is_default_for_quantity_1": true,
+        "channel_pricing": {
+          "자사몰": { "list": 180000, "sell": 94000, "margin_with_ship": 57078, "cogs": 28582 }
+        }
+      }]
+    },
+    {
+      "match_patterns": ["세안수건 스트라이프민트 5개입", "스트라이프민트 5개입"],
+      "name": "세안수건 스트라이프민트 5개입 (벌크포장)",
+      "variants": [{
+        "bundle": 1,
+        "is_default_for_quantity_1": true,
+        "channel_pricing": {
+          "자사몰": { "list": 90000, "sell": 49500, "margin_with_ship": 32436, "cogs": 14641 }
+        }
+      }]
+    },
+    {
+      "match_patterns": ["키친웨어 주방수건 스트라이프민트 3P", "주방수건 스트라이프민트 3P"],
+      "name": "주방수건 스트라이프민트 3P (선물포장)",
+      "variants": [{
+        "bundle": 1,
+        "is_default_for_quantity_1": true,
+        "channel_pricing": {
+          "자사몰": { "list": 35000, "sell": 20500, "margin_with_ship": 15261, "cogs": 5123 }
+        }
+      }]
+    },
+    {
       "match_patterns": ["양면 수세미", "원형 수세미", "수세미"],
       "name": "수세미 (애드온)",
       "_note": "함께 사용하기 좋아요 옵션. 단독 판매 아닌 add-on이라 매출만 잡고 마진은 0으로 보수적 처리(원가 미확인).",
