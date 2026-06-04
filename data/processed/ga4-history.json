@@ -37,6 +37,21 @@
     {"date": "2026-05-31", "source": "(direct)", "medium": "(none)", "sessions": 20, "transactions": 3, "avgRevenue": 22000.00, "isOrganic": false},
     {"date": "2026-05-31", "source": "google", "medium": "organic", "sessions": 8, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
     {"date": "2026-05-31", "source": "orders.pay.naver.com", "medium": "referral", "sessions": 7, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
-    {"date": "2026-05-31", "source": "shopping.naver.com", "medium": "referral", "sessions": 7, "transactions": 1, "avgRevenue": 17500.00, "isOrganic": false}
+    {"date": "2026-05-31", "source": "shopping.naver.com", "medium": "referral", "sessions": 7, "transactions": 1, "avgRevenue": 17500.00, "isOrganic": false},
+
+    {"date": "2026-06-01", "source": "ig", "medium": "paid", "sessions": 38, "transactions": 3, "avgRevenue": 19166.67, "isOrganic": false, "_note": "메타 OFF 이후 잔여 어트리뷰션"},
+    {"date": "2026-06-01", "source": "(direct)", "medium": "(none)", "sessions": 31, "transactions": 5, "avgRevenue": 17300.00, "isOrganic": false},
+    {"date": "2026-06-01", "source": "m.search.naver.com", "medium": "referral", "sessions": 28, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-01", "source": "google", "medium": "organic", "sessions": 6, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+
+    {"date": "2026-06-02", "source": "m.search.naver.com", "medium": "referral", "sessions": 33, "transactions": 3, "avgRevenue": 17333.33, "isOrganic": true},
+    {"date": "2026-06-02", "source": "ig", "medium": "paid", "sessions": 28, "transactions": 1, "avgRevenue": 17000.00, "isOrganic": false, "_note": "메타 OFF 잔여 어트리뷰션"},
+    {"date": "2026-06-02", "source": "(direct)", "medium": "(none)", "sessions": 23, "transactions": 2, "avgRevenue": 81550.00, "isOrganic": false, "_note": "고객당 평균 ₩81,550 — 큰 주문 1건 영향"},
+    {"date": "2026-06-02", "source": "google", "medium": "organic", "sessions": 5, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-02", "source": "shopping.naver.com", "medium": "referral", "sessions": 5, "transactions": 1, "avgRevenue": 33999.99, "isOrganic": false},
+
+    {"date": "2026-06-03", "source": "(direct)", "medium": "(none)", "sessions": 25, "transactions": 1, "avgRevenue": 43499.99, "isOrganic": false, "_note": "수건 주문 1건"},
+    {"date": "2026-06-03", "source": "m.search.naver.com", "medium": "referral", "sessions": 20, "transactions": 1, "avgRevenue": 17000.00, "isOrganic": true},
+    {"date": "2026-06-03", "source": "ig", "medium": "paid", "sessions": 9, "transactions": 0, "avgRevenue": 0, "isOrganic": false, "_note": "메타 OFF 잔여 트래픽도 거의 사라짐"}
   ]
 }
