@@ -28,15 +28,12 @@
   </div>
 </div>
 
-## 📊 메타 광고 효율 (ROAS)
+## 📊 채널별 광고 효율 (ROAS)
 
-> 메타 광고비 ÷ 메타 attribution 매출. **1.0 이하 = 광고비 회수 못함**
+> 광고비 ÷ 매출. **1.0 이하 = 광고비 회수 못함 / 5.0 이상 = 강한 흑자**
 
 <div style="background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(58,43,32,0.06);margin:1rem 0;">
-  <canvas id="chart-meta-roas" style="max-height:280px;"></canvas>
-  <div id="meta-roas-pending" style="display:none;text-align:center;padding:30px;color:#8B7B6B;font-size:0.9rem;">
-    📡 GA4 데이터 연동 후 활성화됩니다.
-  </div>
+  <canvas id="chart-channel-roas" style="max-height:300px;"></canvas>
 </div>
 
 ## 🌱 오가닉 서치 비중 (목표 15%)
@@ -139,14 +136,13 @@
     };
 
     const cards = [
-      { label: '자사몰 매출', value: KRW(latest.revenue_owned), trend: trend(latest.revenue_owned, prev?.revenue_owned) },
-      { label: '광고 매출', value: KRW(latest.ga_ad_revenue), trend: trend(latest.ga_ad_revenue, prev?.ga_ad_revenue) },
-      { label: '오가닉 매출', value: KRW(latest.ga_organic_revenue), trend: trend(latest.ga_organic_revenue, prev?.ga_organic_revenue) },
-      { label: '메타 ROAS', value: latest.meta_roas != null ? latest.meta_roas.toFixed(2) + 'x' : '-', trend: trend(latest.meta_roas, prev?.meta_roas) },
-      { label: '오가닉 비중', value: latest.organic_search_ratio != null ? PCT(latest.organic_search_ratio) : '-', trend: trend(latest.organic_search_ratio, prev?.organic_search_ratio) },
-      { label: 'AOV', value: KRW(latest.aov), trend: trend(latest.aov, prev?.aov) },
-      { label: 'CAC', value: KRW(latest.cac), trend: trend(latest.cac, prev?.cac, null, true) },
-      { label: '객당 기여이익', value: KRW(latest.contribution_profit_per_order), trend: trend(latest.contribution_profit_per_order, prev?.contribution_profit_per_order) },
+      { label: '총 매출', value: KRW(latest.revenue_total), trend: trend(latest.revenue_total, prev?.revenue_total) },
+      { label: '자사몰', value: KRW(latest.revenue_owned), trend: trend(latest.revenue_owned, prev?.revenue_owned) },
+      { label: '스마트스토어', value: KRW(latest.revenue_smartstore), trend: trend(latest.revenue_smartstore, prev?.revenue_smartstore) },
+      { label: '쿠팡', value: KRW(latest.revenue_coupang), trend: trend(latest.revenue_coupang, prev?.revenue_coupang) },
+      { label: '오집', value: KRW(latest.revenue_ozzip), trend: trend(latest.revenue_ozzip, prev?.revenue_ozzip) },
+      { label: '쿠팡 ROAS', value: latest.coupang_roas != null ? latest.coupang_roas.toFixed(2) + 'x' : '-', trend: trend(latest.coupang_roas, prev?.coupang_roas) },
+      { label: 'SS ROAS', value: latest.ss_roas != null ? latest.ss_roas.toFixed(2) + 'x' : '-', trend: trend(latest.ss_roas, prev?.ss_roas) },
       { label: '플친 (누적)', value: N(latest.kakao_plus_friends), trend: latest.kakao_plus_friends_growth != null ? `<span style="color:${C.green};font-size:0.78rem;margin-left:6px;">+${latest.kakao_plus_friends_growth}</span>` : '' }
     ];
 
@@ -235,56 +231,74 @@
       document.getElementById('media-revenue-pending').style.display = 'block';
     }
 
-    // 1.7) 메타 ROAS
-    const hasRoasData = history.some(d => d.meta_roas != null);
-    if (hasRoasData) {
-      new Chart(document.getElementById('chart-meta-roas'), {
-        type: 'line',
-        data: {
-          labels,
-          datasets: [
-            {
-              label: '메타 ROAS',
-              data: history.map(d => d.meta_roas),
-              borderColor: C.cocao,
-              backgroundColor: 'rgba(58,43,32,0.1)',
-              fill: true,
-              tension: 0.3,
-              pointRadius: 5,
-              pointBackgroundColor: history.map(d => d.meta_roas == null ? C.cocao : (d.meta_roas >= 1 ? C.green : C.redAlert))
-            },
-            {
-              label: '광고비 회수선 (1.0x)',
-              data: history.map(() => 1),
-              borderColor: C.brown,
-              borderDash: [5, 5],
-              pointRadius: 0,
-              fill: false
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            title: { display: true, text: '메타 ROAS (광고 매출 ÷ 광고비 ₩230,000)' },
-            tooltip: {
-              callbacks: {
-                afterLabel: ctx => {
-                  if (ctx.datasetIndex !== 0) return '';
-                  const v = ctx.parsed.y;
-                  if (v == null) return '';
-                  return v >= 1 ? '✅ 광고비 회수' : `❌ 광고비 ${Math.round((1-v)*100)}% 손해`;
-                }
+    // 1.7) 채널별 ROAS 비교 (메타 / SS / 쿠팡)
+    new Chart(document.getElementById('chart-channel-roas'), {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: '쿠팡 ROAS',
+            data: history.map(d => d.coupang_roas),
+            borderColor: '#FAE100',
+            backgroundColor: 'rgba(250,225,0,0.1)',
+            tension: 0.3,
+            pointRadius: 5
+          },
+          {
+            label: 'SS ROAS',
+            data: history.map(d => d.ss_roas),
+            borderColor: C.cherry,
+            backgroundColor: 'rgba(238,218,230,0.2)',
+            tension: 0.3,
+            pointRadius: 4
+          },
+          {
+            label: '메타 ROAS',
+            data: history.map(d => d.meta_roas),
+            borderColor: C.redAlert,
+            backgroundColor: 'rgba(217,119,87,0.1)',
+            tension: 0.3,
+            pointRadius: 4
+          },
+          {
+            label: '회수선 (1.0x)',
+            data: history.map(() => 1),
+            borderColor: C.brown,
+            borderDash: [5, 5],
+            pointRadius: 0,
+            fill: false
+          },
+          {
+            label: '강한 흑자 기준 (5.0x)',
+            data: history.map(() => 5),
+            borderColor: C.green,
+            borderDash: [3, 3],
+            pointRadius: 0,
+            fill: false
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          title: { display: true, text: '채널별 광고 ROAS (메타 OFF / SS·쿠팡 ON)' },
+          tooltip: {
+            callbacks: {
+              afterLabel: ctx => {
+                if (ctx.datasetIndex > 2) return '';
+                const v = ctx.parsed.y;
+                if (v == null) return '';
+                if (v >= 5) return '🚀 강한 흑자';
+                if (v >= 1) return '✅ 회수';
+                return `❌ ${Math.round((1-v)*100)}% 손해`;
               }
             }
-          },
-          scales: { y: { ticks: { callback: v => v.toFixed(2) + 'x' }, beginAtZero: true } }
-        }
-      });
-    } else {
-      document.getElementById('chart-meta-roas').style.display = 'none';
-      document.getElementById('meta-roas-pending').style.display = 'block';
-    }
+          }
+        },
+        scales: { y: { ticks: { callback: v => v.toFixed(1) + 'x' }, beginAtZero: true } }
+      }
+    });
 
     // 2) 오가닉 서치 비중 (GA4 데이터가 있을 때만 그림)
     const hasOrganicData = history.some(d => d.organic_search_ratio != null);
