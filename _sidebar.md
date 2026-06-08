@@ -3,6 +3,8 @@
   - [KPI 대시보드](dashboard/index.md)
   - [데이터 업로드 가이드](data/raw/README.md)
   - [GA4 → Sheets 연동 가이드](data/raw/GA4-SHEETS-SETUP.md)
+- **전략 진단**
+  - [현재 진단서 2026.06 (v1)](diagnostics/houseboy-2026-06.md)
 - **기획**
   - [기획안 목록](plans/index.md)
   - [공간 탈취제](plans/deodorizer.md)
