@@ -52,6 +52,33 @@
 
     {"date": "2026-06-03", "source": "(direct)", "medium": "(none)", "sessions": 25, "transactions": 1, "avgRevenue": 43499.99, "isOrganic": false, "_note": "수건 주문 1건"},
     {"date": "2026-06-03", "source": "m.search.naver.com", "medium": "referral", "sessions": 20, "transactions": 1, "avgRevenue": 17000.00, "isOrganic": true},
-    {"date": "2026-06-03", "source": "ig", "medium": "paid", "sessions": 9, "transactions": 0, "avgRevenue": 0, "isOrganic": false, "_note": "메타 OFF 잔여 트래픽도 거의 사라짐"}
+    {"date": "2026-06-03", "source": "ig", "medium": "paid", "sessions": 9, "transactions": 0, "avgRevenue": 0, "isOrganic": false, "_note": "메타 OFF 잔여 트래픽도 거의 사라짐"},
+
+    {"date": "2026-06-04", "source": "ig", "medium": "paid", "sessions": 28, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+    {"date": "2026-06-04", "source": "(direct)", "medium": "(none)", "sessions": 21, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+    {"date": "2026-06-04", "source": "m.search.naver.com", "medium": "referral", "sessions": 13, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-04", "source": "google", "medium": "organic", "sessions": 9, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-04", "source": "naver", "medium": "organic", "sessions": 6, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-04", "source": "nid.naver.com", "medium": "referral", "sessions": 1, "transactions": 1, "avgRevenue": 31499.99949, "isOrganic": false},
+
+    {"date": "2026-06-05", "source": "(direct)", "medium": "(none)", "sessions": 23, "transactions": 1, "avgRevenue": 31999.99931, "isOrganic": false},
+    {"date": "2026-06-05", "source": "m.search.naver.com", "medium": "referral", "sessions": 16, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-05", "source": "ig", "medium": "paid", "sessions": 14, "transactions": 2, "avgRevenue": 34212.49987, "isOrganic": false, "_note": "메타 OFF인데 ig/paid 잔여 어트리뷰션 다시 살아남"},
+    {"date": "2026-06-05", "source": "google", "medium": "organic", "sessions": 8, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-05", "source": "m.blog.naver.com", "medium": "referral", "sessions": 6, "transactions": 1, "avgRevenue": 17500.00046, "isOrganic": false},
+    {"date": "2026-06-05", "source": "orders.pay.naver.com", "medium": "referral", "sessions": 2, "transactions": 1, "avgRevenue": 17500.00046, "isOrganic": false},
+    {"date": "2026-06-05", "source": "instagram.com", "medium": "referral", "sessions": 1, "transactions": 1, "avgRevenue": 16854.99982, "isOrganic": false},
+
+    {"date": "2026-06-06", "source": "(direct)", "medium": "(none)", "sessions": 29, "transactions": 1, "avgRevenue": 17000.00019, "isOrganic": false},
+    {"date": "2026-06-06", "source": "m.search.naver.com", "medium": "referral", "sessions": 25, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-06", "source": "ig", "medium": "paid", "sessions": 10, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+    {"date": "2026-06-06", "source": "google", "medium": "organic", "sessions": 7, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-06", "source": "shopping.naver.com", "medium": "referral", "sessions": 2, "transactions": 1, "avgRevenue": 17500.00046, "isOrganic": false},
+
+    {"date": "2026-06-07", "source": "m.search.naver.com", "medium": "referral", "sessions": 21, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-07", "source": "ig", "medium": "paid", "sessions": 15, "transactions": 1, "avgRevenue": 16999.99956, "isOrganic": false},
+    {"date": "2026-06-07", "source": "(direct)", "medium": "(none)", "sessions": 14, "transactions": 0, "avgRevenue": 0, "isOrganic": false},
+    {"date": "2026-06-07", "source": "google", "medium": "organic", "sessions": 3, "transactions": 0, "avgRevenue": 0, "isOrganic": true},
+    {"date": "2026-06-07", "source": "naver", "medium": "organic", "sessions": 3, "transactions": 0, "avgRevenue": 0, "isOrganic": true}
   ]
 }
