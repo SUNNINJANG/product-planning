@@ -6,6 +6,7 @@
 
 | 날짜 | 리포트 | 주요 키워드 |
 |------|--------|------------|
+| 2026-06-08 | [6/8 리포트](/trends/2026-06-08) | 도파민 데코르, Colour-Maxxing, 신경계 향(Aerchitect), 호텔 홈센트, 여름 체취 시즌, 컬리 원더컬리 |
 | 2026-05-25 | [5/25 리포트](/trends/2026-05-25) | Fragrance Wardrobe, Laundry Combo, 젠더리스 향, 올리브영 포켓몬 콜라보, 슬립 웰니스, 6월 쿨링 시즌 |
 | 2026-05-18 | [5/18 리포트](/trends/2026-05-18) | #OrganicModern, 세탁 시트, 우디 홈프래그런스, 1.5가구, 감정소비, Apartment Therapy 클리닝 어워즈 |
 | 2026-05-11 | [5/11 리포트](/trends/2026-05-11) | #CleanTok 1,500억 뷰, Sunday Reset, HOCl 청소제, 올리브영 FULLMOON, Lived-in Home, 딥 바이오필릭 |
